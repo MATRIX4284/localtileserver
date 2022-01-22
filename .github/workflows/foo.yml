@@ -1,0 +1,20 @@
+name: Foo
+
+on:
+  push:
+
+jobs:
+  foo:
+    name: Foo
+    container:
+      image: ghcr.io/banesullivan/localtileserver:latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7, 3.8, 3.9, "3.10"]
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -c "print('foo')"
