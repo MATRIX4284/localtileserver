@@ -6,8 +6,8 @@ on:
 jobs:
   foo:
     name: Foo
-    container:
-      image: ghcr.io/banesullivan/localtileserver:latest
+    runs-on: ubuntu-latest
+    container: ghcr.io/banesullivan/localtileserver:latest
     strategy:
       fail-fast: false
       matrix:
